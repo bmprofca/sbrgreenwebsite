@@ -12,7 +12,11 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar-inner">
         <Link to="/" className="brand" onClick={close}>
-          <div className="brand-mark">SBR</div>
+          <img
+            className="brand-logo"
+            src={`${process.env.PUBLIC_URL}/logo.png`}
+            alt={`${company.shortName || "SBRGREEN"} Construction logo`}
+          />
           <div className="brand-text">
             <strong>{company.shortName || "SBRGREEN"}</strong>
             <span>Construction Private Limited</span>

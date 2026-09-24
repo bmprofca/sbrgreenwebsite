@@ -12,7 +12,11 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <h3>{info.shortName || "SBRGREEN"}</h3>
+            <img
+              className="footer-logo"
+              src={`${process.env.PUBLIC_URL}/logo.png`}
+              alt={`${info.shortName || "SBRGREEN"} Construction logo`}
+            />
             <p>
               {info.name} delivers residential, commercial, and infrastructure
               projects with craftsmanship, safety, and a commitment to greener
@@ -60,7 +64,16 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span>© {year} {info.name}. All rights reserved.</span>
-          <span>Built with precision. Delivered with care.</span>
+          <span>
+            Developed by{" "}
+            <a
+              href="https://onesaas.in"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              OneSaaS Technologies Private Limited
+            </a>
+          </span>
         </div>
       </div>
     </footer>

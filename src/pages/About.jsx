@@ -77,6 +77,51 @@ export default function About() {
         </div>
       </section>
 
+      <section className="section" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">Legal</p>
+            <h2>Official documents</h2>
+            <p>
+              View and download statutory company documents for{" "}
+              {company.name || "SBRGREEN Construction Private Limited"}.
+            </p>
+          </div>
+          <div className="document-list">
+            <article className="document-card">
+              <div className="document-icon" aria-hidden="true">
+                PDF
+              </div>
+              <div className="document-body">
+                <h3>Certificate of Incorporation</h3>
+                <p>
+                  Official certificate confirming the incorporation of SBRGREEN
+                  Construction Private Limited.
+                </p>
+              </div>
+              <div className="document-actions">
+                <a
+                  className="btn btn-outline"
+                  href={`${process.env.PUBLIC_URL}/certificate-of-incorporation.pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View
+                </a>
+                <a
+                  className="btn btn-primary"
+                  style={{ width: "auto" }}
+                  href={`${process.env.PUBLIC_URL}/certificate-of-incorporation.pdf`}
+                  download="SBRGREEN-Certificate-of-Incorporation.pdf"
+                >
+                  Download
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <CtaBand />
     </>
   );
