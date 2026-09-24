@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 import { useSite } from "../SiteContext";
+import {
+  buildLocalBusinessSchema,
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+  pageSeo,
+} from "../seo/seoConfig";
 
 export default function Home() {
   const {
@@ -18,9 +25,22 @@ export default function Home() {
         background: `linear-gradient(105deg, rgba(6, 38, 28, 0.88) 0%, rgba(6, 38, 28, 0.55) 45%, rgba(6, 38, 28, 0.35) 100%), url("${company.heroImage}") center/cover no-repeat`,
       }
     : undefined;
+  const seo = pageSeo.home;
 
   return (
     <>
+      <Seo
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
+        image={company.heroImage || "/logo.png"}
+        jsonLd={[
+          buildOrganizationSchema(company),
+          buildLocalBusinessSchema(company),
+          buildWebSiteSchema(),
+        ]}
+      />
       <section className="home-hero">
         <div className="home-hero-media" style={heroStyle} aria-hidden="true" />
         <div className="home-hero-content">
@@ -75,10 +95,11 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <p className="eyebrow">What we do</p>
-            <h2>Construction services</h2>
+            <h2>Our work details</h2>
             <p>
-              End-to-end capabilities for new builds, upgrades, and managed
-              delivery — tailored to your site and goals.
+              Structural building, foundation, site development, piling,
+              industrial, bridge, road, fabrication, interior, boundary, RCC,
+              and commercial construction works — delivered with skilled teams.
             </p>
           </div>
           <div className="services-grid">

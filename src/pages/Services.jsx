@@ -1,12 +1,38 @@
 import PageHero from "../components/PageHero";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 import { useSite } from "../SiteContext";
+import { buildBreadcrumbSchema, pageSeo } from "../seo/seoConfig";
 
 export default function Services() {
   const { services, processSteps } = useSite();
+  const seo = pageSeo.services;
 
   return (
     <>
+      <Seo
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
+        jsonLd={[
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "SBRGREEN Construction Services",
+            itemListElement: services.map((service, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: service.title,
+              description: service.summary || service.details,
+            })),
+          },
+        ]}
+      />
       <PageHero
         title="Our Services"
         subtitle="Comprehensive construction capabilities — from first excavation to final handover."
@@ -19,8 +45,9 @@ export default function Services() {
             <p className="eyebrow">Capabilities</p>
             <h2>What we deliver</h2>
             <p>
-              Whether you need a new build, a retrofit, or full project
-              management, our teams bring structure and clarity to every phase.
+              From foundation and structural works to industrial projects,
+              roads, interiors, and RCC boundary or drain works — we handle
+              construction-related projects end to end.
             </p>
           </div>
           <div className="service-detail">

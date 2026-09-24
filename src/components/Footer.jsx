@@ -38,10 +38,10 @@ export default function Footer() {
           <div>
             <h4>Services</h4>
             <ul className="footer-links">
-              <li><Link to="/services">Residential</Link></li>
-              <li><Link to="/services">Commercial</Link></li>
-              <li><Link to="/services">Infrastructure</Link></li>
-              <li><Link to="/services">Green Builds</Link></li>
+              <li><Link to="/services">Structural Building</Link></li>
+              <li><Link to="/services">Foundation Work</Link></li>
+              <li><Link to="/services">Industrial Projects</Link></li>
+              <li><Link to="/services">Commercial Buildings</Link></li>
             </ul>
           </div>
 

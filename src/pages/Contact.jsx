@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 import { submitContact } from "../api";
 import { useSite } from "../SiteContext";
+import {
+  buildBreadcrumbSchema,
+  buildLocalBusinessSchema,
+  pageSeo,
+} from "../seo/seoConfig";
 
 const initialForm = {
   name: "",
@@ -17,6 +23,7 @@ export default function Contact() {
   const location = useLocation();
   const prefill =
     typeof location.state?.subject === "string" ? location.state.subject : "";
+  const seo = pageSeo.contact;
 
   const [form, setForm] = useState({
     ...initialForm,
@@ -48,6 +55,25 @@ export default function Contact() {
 
   return (
     <>
+      <Seo
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
+        jsonLd={[
+          buildLocalBusinessSchema(company),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Contact", path: "/contact" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Contact SBRGREEN Construction",
+            url: "https://sbrgreen.com/contact",
+          },
+        ]}
+      />
       <PageHero
         title="Contact Us"
         subtitle="Share your project details — we will get back with clear next steps."
@@ -116,12 +142,21 @@ export default function Contact() {
                 <label htmlFor="service">Interest</label>
                 <select id="service" name="service" value={form.service} onChange={onChange}>
                   <option>General Inquiry</option>
-                  <option>Residential Construction</option>
-                  <option>Commercial Buildings</option>
-                  <option>Infrastructure Works</option>
-                  <option>Renovation & Retrofitting</option>
-                  <option>Green & Sustainable Builds</option>
-                  <option>Project Management</option>
+                  <option>Structural Building Works</option>
+                  <option>Foundation Work</option>
+                  <option>Site Development</option>
+                  <option>Piling Work</option>
+                  <option>Industrial Projects</option>
+                  <option>Bridge Structural Works</option>
+                  <option>Road Design & Construction</option>
+                  <option>Fabrication Works</option>
+                  <option>Interior Works</option>
+                  <option>Fencing & Boundary Works</option>
+                  <option>Boundary Wall Construction</option>
+                  <option>RCC Boundary Work</option>
+                  <option>RCC Drain Work</option>
+                  <option>Commercial Building Projects</option>
+                  <option>General Construction Services</option>
                   <option>Careers</option>
                 </select>
               </div>

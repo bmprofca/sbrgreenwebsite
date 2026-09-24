@@ -36,6 +36,19 @@ const fallbackTimeline = [
   },
 ];
 
+const fallbackFounders = [
+  {
+    id: 1,
+    name: "Rajesh Kumar Sharma",
+    designation: "Founder & Managing Director",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
+    bio: "With decades of hands-on experience in civil and structural construction, Rajesh founded SBRGREEN to deliver reliable projects with a stronger focus on quality, safety, and greener building practices.",
+    quote:
+      "Every structure we build should stand strong — and leave a lighter footprint for tomorrow.",
+  },
+];
+
 const fallbackProcess = [
   { step: "01", title: "Consult", text: "Understand scope, site conditions, budget, and success criteria." },
   { step: "02", title: "Plan", text: "Define schedule, resources, procurement, and quality checkpoints." },
@@ -47,6 +60,7 @@ function toCompany(settings) {
   if (!settings) {
     return {
       ...fallbackCompany,
+      whatsappNumber: "919876543210",
       heroImage:
         "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1800&q=80",
       aboutImage:
@@ -75,6 +89,7 @@ function toCompany(settings) {
     aboutStory1: settings.aboutStory1,
     aboutStory2: settings.aboutStory2,
     careersIntro: settings.careersIntro,
+    whatsappNumber: settings.whatsappNumber || "",
   };
 }
 
@@ -111,6 +126,7 @@ export function SiteProvider({ children }) {
       timeline: data?.timeline?.length ? data.timeline : fallbackTimeline,
       processSteps: data?.processSteps?.length ? data.processSteps : fallbackProcess,
       careers: data?.careers?.length ? data.careers : fallbackCareers,
+      founders: data?.founders?.length ? data.founders : fallbackFounders,
       fromApi: Boolean(data?.settings),
     };
   }, [data, loading, error]);

@@ -1,7 +1,9 @@
 import { useMemo, useState } from "react";
 import PageHero from "../components/PageHero";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 import { useSite } from "../SiteContext";
+import { buildBreadcrumbSchema, pageSeo } from "../seo/seoConfig";
 
 export default function Projects() {
   const { projects } = useSite();
@@ -10,6 +12,7 @@ export default function Projects() {
     [projects]
   );
   const [filter, setFilter] = useState("All");
+  const seo = pageSeo.projects;
 
   const filtered = useMemo(() => {
     if (filter === "All") return projects;
@@ -18,6 +21,31 @@ export default function Projects() {
 
   return (
     <>
+      <Seo
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
+        image={projects[0]?.image || "/logo.png"}
+        jsonLd={[
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/projects" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "SBRGREEN Construction Projects",
+            itemListElement: projects.map((project, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: project.title,
+              description: project.description,
+              image: project.image,
+            })),
+          },
+        ]}
+      />
       <PageHero
         title="Projects"
         subtitle="A portfolio of residential, commercial, industrial, and infrastructure works."

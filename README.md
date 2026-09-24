@@ -12,6 +12,18 @@ Public website for **SBRGREEN Construction Private Limited**, built with Create 
 - Careers
 - Contact
 
+## SEO
+
+The public website includes:
+
+- Per-page titles, descriptions, keywords, and canonical URLs
+- Open Graph + Twitter cards
+- JSON-LD structured data (Organization, LocalBusiness, WebSite, Breadcrumbs, Jobs)
+- `robots.txt` and `sitemap.xml`
+- Semantic landmarks and skip-to-content link
+
+Configure the public site URL with `REACT_APP_SITE_URL` in `.env.development` / `.env.production`.
+
 ## Run locally
 
 ```bash

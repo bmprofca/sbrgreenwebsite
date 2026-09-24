@@ -1,3 +1,8 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Admin panel is a separate app and should not be crawled from this site.
+Disallow: /admin
+Disallow: /login
+
+Sitemap: https://sbrgreen.com/sitemap.xml

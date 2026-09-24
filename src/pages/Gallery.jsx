@@ -1,12 +1,26 @@
 import PageHero from "../components/PageHero";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 import { useSite } from "../SiteContext";
+import { buildBreadcrumbSchema, pageSeo } from "../seo/seoConfig";
 
 export default function Gallery() {
   const { gallery } = useSite();
+  const seo = pageSeo.gallery;
 
   return (
     <>
+      <Seo
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
+        image={gallery[0]?.src || "/logo.png"}
+        jsonLd={buildBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Gallery", path: "/gallery" },
+        ])}
+      />
       <PageHero
         title="Gallery"
         subtitle="Moments from our sites — structure, craft, and progress in frame."

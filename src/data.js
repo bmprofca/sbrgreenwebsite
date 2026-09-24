@@ -20,52 +20,124 @@ export const navLinks = [
 
 export const services = [
   {
-    id: "residential",
-    title: "Residential Construction",
+    id: "structural-building",
+    title: "Structural Building Works",
     summary:
-      "Custom homes, apartments, and gated communities built with precision and lasting quality.",
+      "Complete structural building construction for durable, code-compliant structures.",
     details:
-      "From foundation to finishing, we deliver residential projects that balance comfort, durability, and modern living standards.",
+      "We execute structural building works with accurate detailing, quality materials, and strict site supervision from framing to structural completion.",
   },
   {
-    id: "commercial",
-    title: "Commercial Buildings",
+    id: "foundation-work",
+    title: "Foundation Work",
     summary:
-      "Offices, retail spaces, and mixed-use developments designed for performance and presence.",
+      "Strong, engineered foundations that support safe and long-lasting construction.",
     details:
-      "We manage commercial builds with clear timelines, safety compliance, and finishes that reflect your brand.",
+      "Our foundation services cover excavation, footing, raft, and related substructure works with careful soil handling and quality concrete practices.",
   },
   {
-    id: "infrastructure",
-    title: "Infrastructure Works",
+    id: "site-development",
+    title: "Site Development",
     summary:
-      "Roads, drainage, utility corridors, and civic structures that serve communities for decades.",
+      "End-to-end site preparation and development for ready-to-build project grounds.",
     details:
-      "Our infrastructure teams bring engineering rigor and site discipline to public and private civil works.",
+      "From leveling and grading to access roads and utility-ready plots, we prepare sites for smooth and efficient construction progress.",
   },
   {
-    id: "renovation",
-    title: "Renovation & Retrofitting",
+    id: "piling-work",
+    title: "Piling Work",
     summary:
-      "Structural upgrades, modernizations, and adaptive reuse of existing properties.",
+      "Reliable piling solutions for deep foundations and high-load structures.",
     details:
-      "We revitalize aging structures with careful planning, minimal disruption, and updated building systems.",
+      "We deliver piling work with controlled installation methods, alignment checks, and load-ready foundations for industrial and commercial projects.",
   },
   {
-    id: "green",
-    title: "Green & Sustainable Builds",
+    id: "industrial-projects",
+    title: "Industrial Projects",
     summary:
-      "Energy-efficient design, eco materials, and practices that reduce environmental impact.",
+      "Industrial sheds, plants, and utility structures built for performance and scale.",
     details:
-      "As SBRGREEN, we prioritize responsible construction — from waste control to efficient envelopes and landscaping.",
+      "Our industrial project teams focus on functional layouts, strong structures, and efficient execution for manufacturing and warehouse facilities.",
   },
   {
-    id: "pmc",
-    title: "Project Management",
+    id: "bridge-structural",
+    title: "Bridge Structural Works",
     summary:
-      "End-to-end planning, scheduling, quality control, and stakeholder coordination.",
+      "Structural construction support for bridges and related civil structures.",
     details:
-      "Transparent reporting, milestone tracking, and on-site leadership keep your project on course.",
+      "We undertake bridge structural works with disciplined engineering coordination, formwork quality, and durable concrete and steel practices.",
+  },
+  {
+    id: "road-design-construction",
+    title: "Road Design & Construction",
+    summary:
+      "Practical road design and construction for internal and connecting road networks.",
+    details:
+      "We plan and build roads with proper alignment, drainage consideration, compaction standards, and lasting pavement quality.",
+  },
+  {
+    id: "fabrication-works",
+    title: "Fabrication Works",
+    summary:
+      "Steel and metal fabrication for structural and site construction needs.",
+    details:
+      "Our fabrication works include cutting, assembly, and installation support for structural steel, frames, and custom site components.",
+  },
+  {
+    id: "interior-works",
+    title: "Interior Works",
+    summary:
+      "Interior fit-outs and finishing that complete functional, presentable spaces.",
+    details:
+      "We deliver interior works covering partitions, finishes, and related installations with clean workmanship and coordinated site delivery.",
+  },
+  {
+    id: "fencing-boundary",
+    title: "Fencing & Boundary Works",
+    summary:
+      "Secure fencing and boundary solutions for project sites and properties.",
+    details:
+      "We install fencing and boundary systems that improve site security, define property limits, and withstand outdoor conditions.",
+  },
+  {
+    id: "boundary-wall",
+    title: "Boundary Wall Construction",
+    summary:
+      "Strong boundary walls designed for security, durability, and neat finishing.",
+    details:
+      "Our boundary wall construction covers layout marking, masonry or RCC options, and finishing suitable for residential and commercial sites.",
+  },
+  {
+    id: "rcc-boundary",
+    title: "RCC Boundary Work",
+    summary:
+      "Reinforced cement concrete boundary structures for long-term strength.",
+    details:
+      "We execute RCC boundary work with proper reinforcement, formwork, and curing practices for durable perimeter structures.",
+  },
+  {
+    id: "rcc-drain",
+    title: "RCC Drain Work",
+    summary:
+      "RCC drain construction for effective site and roadside water management.",
+    details:
+      "Our RCC drain works help control stormwater flow with accurate levels, strong concrete sections, and clean finishing.",
+  },
+  {
+    id: "commercial-building",
+    title: "Commercial Building Projects",
+    summary:
+      "Offices, retail, and commercial buildings delivered with professional project control.",
+    details:
+      "We build commercial projects with attention to structure, schedule, safety, and finishes that support business-ready spaces.",
+  },
+  {
+    id: "general-construction",
+    title: "General Construction Services",
+    summary:
+      "Any construction-related work handled with skilled teams and clear delivery.",
+    details:
+      "From specialized civil packages to complete project support, SBRGREEN undertakes construction-related works tailored to your site requirements.",
   },
 ];
 

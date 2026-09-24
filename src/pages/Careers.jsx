@@ -1,12 +1,50 @@
 import { Link } from "react-router-dom";
 import PageHero from "../components/PageHero";
+import Seo from "../components/Seo";
 import { useSite } from "../SiteContext";
+import { buildBreadcrumbSchema, pageSeo } from "../seo/seoConfig";
 
 export default function Careers() {
   const { careers, company } = useSite();
+  const seo = pageSeo.careers;
 
   return (
     <>
+      <Seo
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
+        jsonLd={[
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Careers", path: "/careers" },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Open roles at SBRGREEN",
+            itemListElement: careers.map((role, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "JobPosting",
+                title: role.title,
+                description: role.summary,
+                employmentType: role.type,
+                jobLocation: {
+                  "@type": "Place",
+                  address: role.location,
+                },
+                hiringOrganization: {
+                  "@type": "Organization",
+                  name: company.name || "SBRGREEN CONSTRUCTION PRIVATE LIMITED",
+                },
+              },
+            })),
+          },
+        ]}
+      />
       <PageHero
         title="Careers"
         subtitle="Join a team that builds carefully, safely, and with pride in the finished work."

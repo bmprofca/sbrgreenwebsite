@@ -23,7 +23,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <nav className={`nav-links ${open ? "open" : ""}`} aria-label="Primary">
+        <nav className={`nav-links ${open ? "open" : ""}`} aria-label="Primary navigation">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}

@@ -1,12 +1,32 @@
 import PageHero from "../components/PageHero";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 import { useSite } from "../SiteContext";
+import {
+  buildBreadcrumbSchema,
+  buildOrganizationSchema,
+  pageSeo,
+} from "../seo/seoConfig";
 
 export default function About() {
-  const { company, milestones, values, timeline } = useSite();
+  const { company, milestones, values, timeline, founders } = useSite();
+  const seo = pageSeo.about;
 
   return (
     <>
+      <Seo
+        title={seo.title}
+        description={seo.description}
+        path={seo.path}
+        keywords={seo.keywords}
+        jsonLd={[
+          buildOrganizationSchema(company),
+          buildBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+        ]}
+      />
       <PageHero
         title={`About ${company.shortName || "SBRGREEN"}`}
         subtitle="A construction company built on discipline, craftsmanship, and greener ways of working."
@@ -40,6 +60,44 @@ export default function About() {
           ))}
         </div>
       </section>
+
+      {founders?.length ? (
+        <section className="section">
+          <div className="container">
+            <div className="section-head">
+              <p className="eyebrow">Leadership</p>
+              <h2>Our founder</h2>
+              <p>
+                The vision and values behind SBRGREEN Construction Private
+                Limited.
+              </p>
+            </div>
+            <div className="founder-list">
+              {founders.map((founder) => (
+                <article className="founder-card" key={founder.id || founder.name}>
+                  <div className="founder-media">
+                    <img
+                      src={founder.image}
+                      alt={`${founder.name}, ${founder.designation}`}
+                    />
+                  </div>
+                  <div className="founder-content">
+                    <p className="eyebrow">Founder</p>
+                    <h3>{founder.name}</h3>
+                    <p className="founder-role">{founder.designation}</p>
+                    <p>{founder.bio}</p>
+                    {founder.quote ? (
+                      <blockquote className="founder-quote">
+                        “{founder.quote}”
+                      </blockquote>
+                    ) : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <section className="section">
         <div className="container">

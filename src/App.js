@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { SiteProvider } from "./SiteContext";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -11,21 +12,23 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <SiteProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="services" element={<Services />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="gallery" element={<Gallery />} />
-            <Route path="careers" element={<Careers />} />
-            <Route path="contact" element={<Contact />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </SiteProvider>
+    <HelmetProvider>
+      <SiteProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="services" element={<Services />} />
+              <Route path="projects" element={<Projects />} />
+              <Route path="gallery" element={<Gallery />} />
+              <Route path="careers" element={<Careers />} />
+              <Route path="contact" element={<Contact />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </SiteProvider>
+    </HelmetProvider>
   );
 }
 
